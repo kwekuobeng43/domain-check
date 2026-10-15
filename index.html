@@ -1,31 +1,419 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Esicup Hairline AND Accessories — Domain Name Request</title>
-<style>
-:root{--p:#d81b60;--p2:#ed4b8b;--ink:#2a1821;--muted:#796873;--line:#eadfe5;--soft:#fff0f6}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;font-family:system-ui,-apple-system,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 0%,#ffddeb,transparent 32%),radial-gradient(circle at 100% 100%,#ffe6f0,transparent 34%),#fff9fb}
-.wrap{width:min(650px,100%)}.brand{display:flex;justify-content:space-between;align-items:center;margin:0 4px 18px;gap:12px}.logo{font:700 34px Georgia,serif;color:var(--p);letter-spacing:-1px}.logo small{display:block;font-size:10px;letter-spacing:1.6px;font-weight:500;margin-top:-3px}.pill{font-size:11px;font-weight:800;color:#ad124b;background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 12px}
-.card{background:#ffffffed;border:1px solid var(--line);border-radius:25px;box-shadow:0 24px 70px #8019461f;overflow:hidden}.hero{padding:34px 34px 20px}.eyebrow{color:var(--p);font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}h1{font:700 clamp(32px,6vw,46px)/1.06 Georgia,serif;margin:0 0 14px}h1 span{color:var(--p)}.intro{color:var(--muted);font-size:15px;line-height:1.7;margin:0}
-form{padding:0 34px 30px}.field{margin-top:22px}label{display:block;font-size:14px;font-weight:800;margin-bottom:9px}input{width:100%;padding:15px 16px;border:1px solid var(--line);border-radius:13px;font:inherit;outline:none}input:focus{border-color:#e45b91;box-shadow:0 0 0 4px #fff0f6}.hint{font-size:12px;line-height:1.6;color:var(--muted);margin-top:8px}.example{background:var(--soft);color:#a3134a;border-radius:7px;padding:3px 7px;font-weight:700}.notice{background:#fff5f9;border:1px solid #f5d7e4;border-radius:14px;padding:13px 14px;margin-top:22px;color:#765362;font-size:12px;line-height:1.6}.notice strong{color:#9e174b}button{width:100%;border:0;border-radius:14px;padding:15px;margin-top:24px;background:linear-gradient(135deg,var(--p),var(--p2));color:white;font:inherit;font-weight:850;cursor:pointer}button:disabled{opacity:.65;cursor:wait}.error{display:none;color:#b0003a;font-size:12px;margin-top:7px}.success{display:none;text-align:center;padding:42px 30px}.check{width:68px;height:68px;margin:0 auto 18px;display:grid;place-items:center;border-radius:50%;background:#ffe0ed;color:var(--p);font-size:32px}.success h2{font:700 32px Georgia,serif;margin:0 0 10px}.success p{color:var(--muted);line-height:1.7}.footer{text-align:center;color:#9a8790;font-size:12px;padding:18px 0}
-@media(max-width:520px){body{padding:14px}.hero{padding:26px 22px 18px}form{padding:0 22px 24px}.logo{font-size:29px}.pill{font-size:10px;padding:8px}}
-</style></head><body><main class="wrap">
-<header class="brand"><div class="logo">ESICUP<small>HAIRLINE &amp; ACCESSORIES</small></div><div class="pill">DOMAIN REQUEST</div></header>
-<section class="card"><div id="formView">
-<div class="hero"><div class="eyebrow">One small step toward your website</div><h1>Let’s choose your <span>website address.</span></h1><p class="intro">Please enter the email address we should use to contact you and the domain name you would like for your business website. I’ll check the domain’s availability before purchasing it.</p></div>
-<form id="domainForm" novalidate>
-<div class="field"><label for="email">Your email address <span style="color:var(--p)">*</span></label><input id="email" name="email" type="email" autocomplete="email" required placeholder="e.g. yourname@gmail.com"><div class="hint">Please use an email address you can access.</div><div class="error" id="emailError">Enter a valid email address.</div></div>
-<div class="field"><label for="domain">Your preferred domain name <span style="color:var(--p)">*</span></label><input id="domain" name="domain" type="text" required autocapitalize="none" spellcheck="false" placeholder="e.g. esicuphairaccessories.com"><div class="hint">Type the website address you would like. Examples: <span class="example">esicup.com</span> or <span class="example">esicuphairaccessories.com</span>.</div><div class="hint">You can include an ending such as <strong>.com</strong> or <strong>.com.gh</strong>. I’ll check availability before buying it.</div><div class="error" id="domainError">Enter a domain such as yourbusiness.com. Do not include spaces or https://.</div></div>
-<div class="notice">💡 <strong>Please note:</strong> submitting a preferred name does not automatically purchase it. The domain will be checked first, and I’ll confirm availability before proceeding.</div>
-<button id="submitBtn" type="submit">Send Domain Request →</button>
-</form></div>
-<div class="success" id="successView"><div class="check">✓</div><h2>Request received! 💗</h2><p>Thank you. Your email address and preferred domain name have been submitted. The domain will be checked for availability before any purchase is made.</p></div>
-</section><footer class="footer">Esicup Hairline AND Accessories • Website Setup</footer></main>
-<script>
-const SUBMISSION_ENDPOINT='https://script.google.com/macros/s/AKfycbwmyoD4TFGDYZwYoTPIpAPQ7M6o2aHV8f4qXeZxL2jfwI3WppIdA66VWqRXT2Bt5cu2/exec';
-const form=document.getElementById('domainForm'),email=document.getElementById('email'),domain=document.getElementById('domain'),submitBtn=document.getElementById('submitBtn');
-function normalizeDomain(v){return v.trim().toLowerCase().replace(/^https?:\\/\\//,'').replace(/^www\\./,'').replace(/\\/.*$/,'')}
-function validDomain(v){if(!v||/\\s/.test(v)||v.includes('@')||v.includes('://')||v.length>253||!v.includes('.'))return false;return v.split('.').every(x=>x.length>0&&x.length<=63&&/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(x))}
-form.addEventListener('submit',async e=>{e.preventDefault();const em=email.value.trim(),dm=normalizeDomain(domain.value);const eok=email.checkValidity()&&em.length>0,dok=validDomain(dm);document.getElementById('emailError').style.display=eok?'none':'block';document.getElementById('domainError').style.display=dok?'none':'block';if(!eok||!dok)return;if(SUBMISSION_ENDPOINT.includes('PASTE_YOUR_')){alert('The form connection has not been configured yet. Add the Google Apps Script web app URL first.');return}submitBtn.disabled=true;submitBtn.textContent='Sending request…';try{await fetch(SUBMISSION_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({submitted_at:new Date().toISOString(),email:em,domain:dm,source:'Esicup Domain Request Form'})});document.getElementById('formView').style.display='none';document.getElementById('successView').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}catch(err){submitBtn.disabled=false;submitBtn.textContent='Send Domain Request →';alert('Could not send the request. Check your internet connection and try again.')}});
-</script></body></html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esicup Hairline AND Accessories — Domain Name Request</title>
+
+  <style>
+    :root {
+      --p: #d81b60;
+      --p2: #ed4b8b;
+      --ink: #2a1821;
+      --muted: #796873;
+      --line: #eadfe5;
+      --soft: #fff0f6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, #ffddeb, transparent 32%),
+        radial-gradient(circle at 100% 100%, #ffe6f0, transparent 34%),
+        #fff9fb;
+    }
+
+    .wrap { width: min(650px, 100%); }
+
+    .brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 4px 18px;
+      gap: 12px;
+    }
+
+    .logo {
+      font: 700 34px Georgia, serif;
+      color: var(--p);
+      letter-spacing: -1px;
+    }
+
+    .logo small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      font-weight: 500;
+      margin-top: -3px;
+    }
+
+    .pill {
+      font-size: 11px;
+      font-weight: 800;
+      color: #ad124b;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 9px 12px;
+    }
+
+    .card {
+      background: #ffffffed;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      box-shadow: 0 24px 70px #8019461f;
+      overflow: hidden;
+    }
+
+    .hero { padding: 34px 34px 20px; }
+
+    .eyebrow {
+      color: var(--p);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font: 700 clamp(32px, 6vw, 46px)/1.06 Georgia, serif;
+      margin: 0 0 14px;
+    }
+
+    h1 span { color: var(--p); }
+
+    .intro {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    form { padding: 0 34px 30px; }
+    .field { margin-top: 22px; }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 9px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      font: inherit;
+      outline: none;
+      background: white;
+    }
+
+    input:focus {
+      border-color: #e45b91;
+      box-shadow: 0 0 0 4px #fff0f6;
+    }
+
+    .hint {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .example {
+      background: var(--soft);
+      color: #a3134a;
+      border-radius: 7px;
+      padding: 3px 7px;
+      font-weight: 700;
+    }
+
+    .notice {
+      background: #fff5f9;
+      border: 1px solid #f5d7e4;
+      border-radius: 14px;
+      padding: 13px 14px;
+      margin-top: 22px;
+      color: #765362;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .notice strong { color: #9e174b; }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 15px;
+      margin-top: 24px;
+      background: linear-gradient(135deg, var(--p), var(--p2));
+      color: white;
+      font: inherit;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: .65;
+      cursor: wait;
+    }
+
+    .error {
+      display: none;
+      color: #b0003a;
+      font-size: 12px;
+      margin-top: 7px;
+    }
+
+    .success {
+      display: none;
+      text-align: center;
+      padding: 42px 30px;
+    }
+
+    .check {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #ffe0ed;
+      color: var(--p);
+      font-size: 32px;
+    }
+
+    .success h2 {
+      font: 700 32px Georgia, serif;
+      margin: 0 0 10px;
+    }
+
+    .success p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .footer {
+      text-align: center;
+      color: #9a8790;
+      font-size: 12px;
+      padding: 18px 0;
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 14px; }
+      .hero { padding: 26px 22px 18px; }
+      form { padding: 0 22px 24px; }
+      .logo { font-size: 29px; }
+      .pill { font-size: 10px; padding: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="brand">
+      <div class="logo">
+        ESICUP
+        <small>HAIRLINE &amp; ACCESSORIES</small>
+      </div>
+      <div class="pill">DOMAIN REQUEST</div>
+    </header>
+
+    <section class="card">
+      <div id="formView">
+        <div class="hero">
+          <div class="eyebrow">One small step toward your website</div>
+          <h1>Let’s choose your <span>website address.</span></h1>
+          <p class="intro">
+            Please enter the email address we should use to contact you
+            and the domain name you would like for your business website.
+            I’ll check the domain’s availability before purchasing it.
+          </p>
+        </div>
+
+        <form id="domainForm" novalidate>
+          <div class="field">
+            <label for="email">
+              Your email address <span style="color:var(--p)">*</span>
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              placeholder="e.g. yourname@gmail.com"
+            >
+            <div class="hint">Please use an email address you can access.</div>
+            <div class="error" id="emailError">
+              Enter a valid email address.
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="domain">
+              Your preferred domain name
+              <span style="color:var(--p)">*</span>
+            </label>
+            <input
+              id="domain"
+              name="domain"
+              type="text"
+              required
+              autocapitalize="none"
+              spellcheck="false"
+              placeholder="e.g. esicuphairaccessories.com"
+            >
+
+            <div class="hint">
+              Type the website address you would like. Examples:
+              <span class="example">esicup.com</span> or
+              <span class="example">esicuphairaccessories.com</span>.
+            </div>
+
+            <div class="hint">
+              You can use an ending such as <strong>.com</strong> or
+              <strong>.com.gh</strong>. I’ll check availability before buying it.
+            </div>
+
+            <div class="error" id="domainError">
+              Enter a valid domain such as yourbusiness.com.
+              Do not include spaces or https://.
+            </div>
+          </div>
+
+          <div class="notice">
+            💡 <strong>Please note:</strong> submitting a preferred name
+            does not automatically purchase it. The domain will be checked
+            first, and I’ll confirm availability before proceeding.
+          </div>
+
+          <button id="submitBtn" type="submit">
+            Send Domain Request →
+          </button>
+        </form>
+      </div>
+
+      <div class="success" id="successView" role="status">
+        <div class="check">✓</div>
+        <h2>Request received! 💗</h2>
+        <p>
+          Thank you. Your email address and preferred domain name
+          have been submitted. The domain will be checked for availability
+          before any purchase is made.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Esicup Hairline AND Accessories • Website Setup
+    </footer>
+  </main>
+
+  <script>
+    // Google Apps Script web app endpoint
+    const SUBMISSION_ENDPOINT =
+      'https://script.google.com/macros/s/AKfycbwmyoD4TFGDYZwYoTPIpAPQ7M6o2aHV8f4qXeZxL2jfwI3WppIdA66VWqRXT2Bt5cu2/exec';
+
+    const form = document.getElementById('domainForm');
+    const email = document.getElementById('email');
+    const domain = document.getElementById('domain');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function normalizeDomain(value) {
+      return value
+        .trim()
+        .toLowerCase()
+        .replace(/^https?:\/\//, '')
+        .replace(/^www\./, '')
+        .replace(/\/.*$/, '');
+    }
+
+    function validDomain(value) {
+      if (
+        !value ||
+        /\s/.test(value) ||
+        value.includes('@') ||
+        value.includes('://') ||
+        value.length > 253 ||
+        !value.includes('.')
+      ) {
+        return false;
+      }
+
+      return value.split('.').every(part =>
+        part.length > 0 &&
+        part.length <= 63 &&
+        /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(part)
+      );
+    }
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+
+      const emailValue = email.value.trim();
+      const domainValue = normalizeDomain(domain.value);
+
+      const emailValid =
+        email.checkValidity() && emailValue.length > 0;
+      const domainValid = validDomain(domainValue);
+
+      document.getElementById('emailError').style.display =
+        emailValid ? 'none' : 'block';
+
+      document.getElementById('domainError').style.display =
+        domainValid ? 'none' : 'block';
+
+      if (!emailValid || !domainValid) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending request…';
+
+      try {
+        // Send the form to Google Apps Script.
+        // no-cors prevents reading Google's response, so a successful
+        // fetch does not independently confirm that the row was saved.
+        await fetch(SUBMISSION_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify({
+            submitted_at: new Date().toISOString(),
+            email: emailValue,
+            domain: domainValue,
+            source: 'Esicup Domain Request Form'
+          })
+        });
+
+        document.getElementById('formView').style.display = 'none';
+        document.getElementById('successView').style.display = 'block';
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      } catch (error) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Domain Request →';
+
+        alert(
+          'Could not send the request. Check your internet connection and try again.'
+        );
+      }
+    });
+  </script>
+</body>
+</html>
