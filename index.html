@@ -23,7 +23,7 @@ form{padding:0 34px 30px}.field{margin-top:22px}label{display:block;font-size:14
 <div class="success" id="successView"><div class="check">✓</div><h2>Request received! 💗</h2><p>Thank you. Your email address and preferred domain name have been submitted. The domain will be checked for availability before any purchase is made.</p></div>
 </section><footer class="footer">Esicup Hairline AND Accessories • Website Setup</footer></main>
 <script>
-const SUBMISSION_ENDPOINT='PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+const SUBMISSION_ENDPOINT='https://script.google.com/macros/s/AKfycbwmyoD4TFGDYZwYoTPIpAPQ7M6o2aHV8f4qXeZxL2jfwI3WppIdA66VWqRXT2Bt5cu2/exec';
 const form=document.getElementById('domainForm'),email=document.getElementById('email'),domain=document.getElementById('domain'),submitBtn=document.getElementById('submitBtn');
 function normalizeDomain(v){return v.trim().toLowerCase().replace(/^https?:\\/\\//,'').replace(/^www\\./,'').replace(/\\/.*$/,'')}
 function validDomain(v){if(!v||/\\s/.test(v)||v.includes('@')||v.includes('://')||v.length>253||!v.includes('.'))return false;return v.split('.').every(x=>x.length>0&&x.length<=63&&/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(x))}
